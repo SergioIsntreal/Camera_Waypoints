@@ -52,18 +52,18 @@ Right click in `Heirarchy` -> `3D Object` -> `Terrain`. In the `Inspector`, you 
 
 ![image](https://github.com/user-attachments/assets/fa1b2194-f3a2-4d93-b5cb-8e0c926581cf)
 
-5. Within the curly brackets of `void Update()`, we're going to write a script that detects when the player has reached the Current Waypoint. Once reached, the current waypoint will increase by 1, in which the player will move onto the next one.
+6. Within the curly brackets of `void Update()`, we're going to write a script that detects when the player has reached the Current Waypoint. Once reached, the current waypoint will increase by 1, in which the player will move onto the next one.
 
   `if(Vector3.Distance(this.transform.position, waypoints[currentWP].transform.position) < 3)
        currentWP++;`
 
-6. Hit `Enter` twice and type in the following:
+7. Hit `Enter` twice and type in the following:
 
    `this.transform.Translate(0, 0, speed * Time.deltaTime);`
 
    This is what allows the player to move.
 
-7. Now all we need is for the player to look at the waypoint they're travelling to. To do this, we need to create a `Quaternion` (responsible for smoother rotations)
+8. Now all we need is for the player to look at the waypoint they're travelling to. To do this, we need to create a `Quaternion` (responsible for smoother rotations)
    Hit `Enter` and type in:
 
    `Quaternion lookatWP = Quaternion.LookRotation(waypoints[currentWP].transform.position - this.transform.position);`

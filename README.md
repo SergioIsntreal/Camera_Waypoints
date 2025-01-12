@@ -1,57 +1,44 @@
-# Camera_Waypoints
-In this tutorial, we will:
-- Create and Configure the Map and Player
-- Apply the camera to the Player
-- Create waypoints for the camera to travel between
-- Tweak the camera's movement to better suit a railshooter
+# Camera Waypoints
 
-> [!NOTE]
-> This tutorial is made for a 3D Unity Project
+### In this tutorial, we will be creating Waypoints that the Camera/Player will follow automatically
 
-## Setting up: Map
-To start off, you'll need to create a plane for the player to travel across.
+> [!IMPORTANT]
+> In this tutorial, you will need any version of Unity and VisualStudio released within the last 5 years
+> 
+> This tutorial is made for a 3D Project
+> 
+> For this tutorial, you'll need a premade map for your player to travel across.
 
-1. Click the `GameObject` tab in the top left menu -> `3D Object` -> `Cube`
+## Quick way to make a map
 
-  ![image](https://github.com/user-attachments/assets/9b15712e-bf90-4d64-8c19-df1989a58422)
+Right click in `Heirarchy` -> `3D Object` -> `Terrain`. In the `Inspector`, you can modify and expand the map to your liking.
 
-2. Click the Cube in `Heirarchy` and rename it to 'Floor' (or whatever will help you distinguish it from the player)
-   
-3. In the `Inspector` tab on your right, under the `Transform` tab, change the values of X and Z next to `Scale` to however long and wide you want your map.
-   
- <img width="955" alt="image" src="https://github.com/user-attachments/assets/20cafe5e-00fa-4bad-83b6-a95c1e251afd" />
- 
-> [!NOTE]
-> Ensure that you have the right object selected in your Heirarchy before changing the Transform values
+![image](https://github.com/user-attachments/assets/3f1390da-111b-4f28-a2fb-2c1d95bf3209)
 
-4. Change the Z value next to `Position` to move the cube so it has the `Main Camera` positioned on the far right of your map
+> This is optional, but I added some extruded cubes (`Heirarchy` -> `3D Object` -> `Cube`) on the map so that you can see more of a visual change when the player moves.
 
-5. Scroll down in the Inspector until you see the `Add Component` button. Click it and type `RigidBody` into the search bar. This will add collision to the object.
+<img width="668" alt="image" src="https://github.com/user-attachments/assets/af1ded51-7d86-4580-b49d-51058a72771d" />
 
-![image](https://github.com/user-attachments/assets/f61a4732-9baa-49f7-af10-dcd17005c870)
+> To keep the Heirarchy tidy, I recommend creating an empty gameObject ( `GameObject` -> `Create Empty`), renaming it to 'Map' or something similar, and dragging your terrain and cubes into it to parent.
 
-6. Within the Rigidbody tab, change the value of `Mass` to 1000. This will prevent other objects from being too heavy and flipping the map (in theory at least).
-
-## Setting up: Player
-Now that you have a map, let's create the Player.
-
-1. Click `GameObject` -> `3D Object` -> `Capsule` (You could use any shape really, but I'd recommend Capsule or Cylinder since they have height)
-
-2. Similar to before, rename the Capsule/Cylinder to 'Player'
-
-3. Scale up to your desired size and position above the extruded cube where you want the player to start.
-
-<img width="950" alt="image" src="https://github.com/user-attachments/assets/58e8504c-7fe8-4c52-b8bc-c9e084ef5efa" />
-(Click the highlighted icon before changing the Scale values if you want them to be scaled up together)
-
-4. Add a `RigidBody` to the Player. Unlike the previous object, this time you want `Use Gravity` to be ticked.
-
-![image](https://github.com/user-attachments/assets/1ee90561-8703-4278-8dce-14e805cb69c8)
-
-## Setting up: Map
-To start off, you'll need to create a plane for the player to travel across.
+> [!IMPORTANT]
+> It is recommended that before you start, your `Main Camera` is placed on the map roughly where you want the player to start. Keep in mind that the Y position of the Camera should be at the player's eye level.
 
 
+### To start, let's create the Waypoints
+
+1. Under `Heirarchy`, right click -> `GameObject` -> `Sphere`, and rename it to 'Waypoint'. This will be the first position your player travels to, so place it accordingly. **Make sure it has the same position on the Y Transform as the Main Camera.**
+
+2. To create more, duplicate the waypoint by pressing Ctrl + D. It's important that you place them in the order of which you want the player to travel. Once you have all your Waypoints, shift select them all and right click, `Create Empty Parent`. Rename to 'Path' (Press F2 to rename a gameObject in the Heirarchy).
+
+![image](https://github.com/user-attachments/assets/fb7c124b-88ed-4f1c-a9cf-ecb3a6abb67e)
+
+> Here I scaled them up so they'd be visible from afar, but they shouldn't be visible when you run the game. Make sure `Mesh Renderer` is unticked.
+
+
+### Now to write the script for the Camera to follow the Waypoints
+  
+1. Right Click in the `Project` window, -> `Create` -> `C# Script` and name the script 'FollowWP'. Double click to open in VisualStudio.
 
 
 

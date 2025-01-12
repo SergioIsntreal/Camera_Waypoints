@@ -3,7 +3,7 @@
 ### In this tutorial, we will be creating Waypoints that the Camera/Player will follow automatically
 
 > [!IMPORTANT]
-> In this tutorial, you will need any version of Unity and VisualStudio released within the last 5 years
+> You will need any version of Unity and VisualStudio released within the last 5 years
 > 
 > This tutorial is made for a 3D Project
 > 

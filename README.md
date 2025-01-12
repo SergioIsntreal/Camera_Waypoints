@@ -38,7 +38,7 @@ Right click in `Heirarchy` -> `3D Object` -> `Terrain`. In the `Inspector`, you 
 
 ### Now to write the script for the Camera to follow the Waypoints
   
-1. Right Click in the `Project` window, -> `Create` -> `C# Script` and name the script 'FollowWP'. Double click to open in VisualStudio.
+1. Right Click in the `Assets` window, -> `Create` -> `C# Script` and name the script 'FollowWP'. Double click to open in VisualStudio.
 
 2. Within the `public class` (press enter on **Line 6**), we are going to create an array to store the waypoints in. Type `public GameObject[] waypoints;`
 
